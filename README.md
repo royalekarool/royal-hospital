@@ -89,3 +89,4 @@ Test it: in the admin panel add a doctor or change a timing, press **Publish**, 
 - Doctors use the timings of their department. To change a doctor's timings, edit the department.
 - A department with no timings shows "Timings on request. Call to confirm."
 - Booking sends a WhatsApp message to the number in Site settings (digits only, with country code, example `919526646501`).
+
