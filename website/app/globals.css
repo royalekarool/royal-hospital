@@ -180,8 +180,10 @@ footer a{text-decoration:none}
 .noresult{border:1px dashed var(--line);border-radius:14px;padding:40px 20px;text-align:center;color:var(--muted)}
 
 /* mobile action bar */
-.bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--bg);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));gap:10px}
-.bar a{flex:1}
+.bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--bg);border-top:1px solid var(--line);padding:7px 12px calc(7px + env(safe-area-inset-bottom,0px));gap:8px}
+.bar a{flex:1;white-space:nowrap}
+.bar .btn{padding:8px 12px;font-size:14px;gap:6px;border-radius:9px}
+.bar a:first-child{flex:0 0 auto;padding-left:18px;padding-right:18px}
 
 @media (max-width:960px){
   section{padding:60px 0}
@@ -200,7 +202,7 @@ footer a{text-decoration:none}
   nav ul{flex-direction:column;gap:0;padding:6px 24px 14px}
   nav a{display:block;padding:13px 0;font-size:16px}
   .bar{display:flex}
-  body{padding-bottom:72px}
+  body{padding-bottom:58px}
 }
 @media (max-width:560px){
   .docs,.dgrid{gap:14px}

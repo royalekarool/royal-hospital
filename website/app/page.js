@@ -28,18 +28,6 @@ export default async function Home() {
                 Call the hospital
               </a>
             </div>
-            <div className="facts">
-              <div>
-                <small>Phone</small>
-                <b>
-                  <a href={tel(site.landline)}>{site.landline}</a>
-                </b>
-              </div>
-              <div>
-                <small>Location</small>
-                <b>{site.address}</b>
-              </div>
-            </div>
           </div>
 
           <TimingsPanel timings={timings} landline={site.landline} />
