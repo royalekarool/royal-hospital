@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { DAYS, bookHref, tel } from "@/lib/utils";
 
 export default function TimingsPanel({ timings, landline }) {
-  const [current, setCurrent] = useState(timings[0] ? timings[0].name : "");
+  // No department is selected when the page loads; the visitor chooses one.
+  const [current, setCurrent] = useState("");
   const [today, setToday] = useState("");
 
   // Day name is read in the visitor's browser, so it is always their local day.
@@ -16,7 +17,9 @@ export default function TimingsPanel({ timings, landline }) {
   const t = timings.find((x) => x.name === current);
 
   let result;
-  if (!t) {
+  if (!t && timings.length && !current) {
+    result = <div className="empty">Select a department above to see its consultation timings.</div>;
+  } else if (!t) {
     result = (
       <div className="empty">
         Timings will be added soon.
