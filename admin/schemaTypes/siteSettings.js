@@ -81,7 +81,24 @@ export default defineType({
     }),
     defineField({name: 'address', title: 'Short address', type: 'string', group: 'contact'}),
     defineField({name: 'mapLink', title: 'Google Maps link', type: 'url', group: 'contact'}),
-    defineField({name: 'mapImage', title: 'Map or entrance photo', type: 'image', options: {hotspot: true}, group: 'contact'}),
+    defineField({
+      name: 'mapEmbed',
+      title: 'Google Map (shows a live map on the website)',
+      type: 'text',
+      rows: 3,
+      group: 'contact',
+      description:
+        'On Google Maps: search the hospital, click Share, choose Embed a map, click Copy HTML, and paste it here. If this is filled in, the live map is shown instead of the photo below.',
+      validation: (r) =>
+        r.custom((v) => (!v || /google\.[a-z.]+\/maps/i.test(v) ? true : 'Paste the embed code from Google Maps (Share, then Embed a map).')),
+    }),
+    defineField({
+      name: 'mapImage',
+      title: 'Entrance photo (used when no Google Map is added above)',
+      type: 'image',
+      options: {hotspot: true},
+      group: 'contact',
+    }),
     defineField({
       name: 'contactDetails',
       title: 'Contact list',
@@ -105,7 +122,7 @@ export default defineType({
     // About
     defineField({name: 'aboutTitle', title: 'About heading', type: 'string', group: 'about'}),
     defineField({name: 'aboutText', title: 'About text', type: 'text', rows: 6, group: 'about'}),
-    defineField({name: 'aboutImage', title: 'About photo', type: 'image', options: {hotspot: true}, group: 'about'}),
+    defineField({name: 'aboutImage', title: 'About photo (hospital interior or team)', type: 'image', options: {hotspot: true}, group: 'about'}),
   ],
   preview: {prepare: () => ({title: 'Site settings'})},
 })

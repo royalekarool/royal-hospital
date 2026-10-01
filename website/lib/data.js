@@ -17,6 +17,20 @@ const options = { next: { revalidate: 30 } };
 const pick = (value, fallbackValue) =>
   value === null || value === undefined || value === "" ? fallbackValue : value;
 
+// Accepts the full <iframe ...> code or just the link, and returns a safe Google Maps embed URL (or null).
+function cleanMapEmbed(value) {
+  if (!value) return null;
+  const match = String(value).match(/src\s*=\s*["']([^"']+)["']/i);
+  const url = (match ? match[1] : String(value).trim()).replace(/&amp;/g, "&");
+  try {
+    const u = new URL(url);
+    const okHost = /^(www\.)?google\.[a-z.]+$/i.test(u.hostname) || u.hostname === "maps.google.com";
+    return u.protocol === "https:" && okHost && u.pathname.startsWith("/maps") ? u.toString() : null;
+  } catch {
+    return null;
+  }
+}
+
 function buildSite(s) {
   const f = fallback.site;
   if (!s) return f;
@@ -53,6 +67,7 @@ function buildSite(s) {
         ? s.contactDetails.map((c) => [c.label, c.value])
         : f.contact,
     mapImage: imageUrl(s.mapImage, 1200),
+    mapEmbed: cleanMapEmbed(s.mapEmbed),
     footer: pick(s.footerText, f.footer),
   };
 }

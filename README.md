@@ -17,7 +17,7 @@ The logo is already inside both folders:
 |---|---|
 | Doctors | name, role, department, photo, order |
 | Departments and timings | days and time slots. This is the "Department consultation timings" box on the home page, and the timings on the Doctors page |
-| Site settings | home page heading and text, departments and services, phone numbers, WhatsApp, address, map link, about text, photos, footer |
+| Site settings | home page heading and text, departments and services, phone numbers, WhatsApp, address, map link, live Google Map, about text and photo, entrance photo, footer |
 
 Changes show on the website in about 30 seconds after you press **Publish**.
 
@@ -90,3 +90,5 @@ Test it: in the admin panel add a doctor or change a timing, press **Publish**, 
 - A department with no timings shows "Timings on request. Call to confirm."
 - Booking sends a WhatsApp message to the number in Site settings (digits only, with country code, example `919526646501`).
 
+
+- Live map: in Site settings, Contact tab, paste the Google Maps embed code (Share, Embed a map, Copy HTML) into **Google Map**. It replaces the entrance photo on the website. After changing the admin panel files, run `npm run deploy` inside `admin` again.

@@ -140,7 +140,19 @@ export default async function Home() {
               </a>
             </div>
           </div>
-          <Photo src={site.mapImage} label="Map or hospital entrance photo" />
+          {site.mapEmbed ? (
+            <div className="ph map">
+              <iframe
+                src={site.mapEmbed}
+                title={`Map of ${site.name}`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+          ) : (
+            <Photo src={site.mapImage} label="Map or hospital entrance photo" />
+          )}
         </div>
       </section>
     </>

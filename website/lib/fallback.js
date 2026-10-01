@@ -53,6 +53,7 @@ export const fallback = {
       ["Hours", "Add OPD and emergency hours here"],
     ],
     mapImage: null,
+    mapEmbed: null,
     footer: "Royal Hospital, Ekarool, Unnikulam",
   },
   timings: [
