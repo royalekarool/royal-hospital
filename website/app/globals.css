@@ -142,6 +142,10 @@ nav a:hover,nav a[aria-current="page"]{color:var(--blue);border-color:var(--red)
 .about{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .about .ph{aspect-ratio:5/4}
 .about p{color:var(--muted);margin:14px 0 0;max-width:34em}
+/* About section: lighter background and text, and a visible frame so a dark photo does not blend in */
+#about.dark{background:#17213b}
+#about.dark .about p{color:#cdd5e6}
+#about.dark .ph.has-img{border-radius:16px;box-shadow:0 0 0 1px rgba(255,255,255,.28),0 18px 48px rgba(0,0,0,.45)}
 
 /* contact (white) */
 .contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:stretch}
@@ -210,7 +214,16 @@ footer a{text-decoration:none}
 }
 @media (max-width:560px){
   .docs,.dgrid{gap:14px}
-  .dgrid{grid-template-columns:1fr}
+  .dgrid{grid-template-columns:1fr 1fr}
+  .dcard{padding:10px;border-radius:12px}
+  .dcard .ph{margin-bottom:10px}
+  .doc h3,.dcard h3{font-size:13.5px;line-height:1.3}
+  .doc .role,.dcard .role{font-size:12.5px}
+  .dcard .tag{font-size:11px;padding:2px 8px;margin:6px 0 8px}
+  .avail{font-size:12px;margin-bottom:10px}
+  .avail div{gap:6px}
+  .avail b{min-width:28px}
+  .dcard .btn{padding:9px 8px;font-size:13px}
   .book-grid,.book-grid2{grid-template-columns:1fr}
   .facts{grid-template-columns:1fr}
   .facts div,.facts div+div{border-left:0;padding:14px 0 0}
